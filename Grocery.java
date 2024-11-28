@@ -4,23 +4,21 @@ public class Grocery {
     public static void main(String[] args) {
         Scanner obj = new Scanner(System.in);
         
-        String name;
         double item1, item2, item3;
         int qty1, qty2, qty3;
         
-        System.out.print("Enter Name: ");
-        name = obj.nextLine();
-        
         System.out.print("Price: ");
         item1 = obj.nextDouble();
-        System.out.print("Price: ");
-        item2 = obj.nextDouble();
-        System.out.print("Price: ");
-        item3 = obj.nextDouble();
         System.out.print("Quantity: ");
         qty1 = obj.nextInt();
+
+        System.out.print("Price: ");
+        item2 = obj.nextDouble();
         System.out.print("Quantity: ");
         qty2 = obj.nextInt();
+
+        System.out.print("Price: ");
+        item3 = obj.nextDouble();
         System.out.print("Quantity: ");
         qty3 = obj.nextInt();
         
@@ -37,7 +35,6 @@ public class Grocery {
         
         System.out.println("Thank You");
         
-        //Abalos Jandelmar 
-        // September 13 2024j
+        obj.close();
     }
 }
