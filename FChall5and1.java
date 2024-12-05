@@ -41,17 +41,27 @@ public class FChall5and1 {
                         throw new InsufficientFundsException("Insufficient funds. Your balance is: PHP" + bal);
                     }
 
-                    bal -= amount; // Deduct the withdrawal amount from the balance
-                    // Inform the user that the withdrawal was successful
-                    JOptionPane.showMessageDialog(null, "Withdrawal successful! New balance: PHP" + bal);
+                    // Confirmation Dialog to confirm the withdrawal action
+                    int confirmation = JOptionPane.showConfirmDialog(null, 
+                            "Are you sure you want to withdraw PHP " + amount + "?", 
+                            "Confirm Withdrawal", 
+                            JOptionPane.YES_NO_OPTION);
+                    
+                    if (confirmation == JOptionPane.YES_OPTION) {
+                        bal -= amount; // Deduct the withdrawal amount from the balance
+                        // Inform the user that the withdrawal was successful
+                        JOptionPane.showMessageDialog(null, "Withdrawal successful! New balance: PHP " + bal);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Withdrawal cancelled.");
+                    }
 
                 } else if (choice == 1) { // User selected "Check Balance"
                     // Display the current balance to the user
-                    JOptionPane.showMessageDialog(null, "Your current balance is: PHP" + bal);
+                    JOptionPane.showMessageDialog(null, "Your current balance is: PHP " + bal);
 
                 } else if (choice == 2) { // User selected "Exit"
                     // Show a goodbye message and exit the loop
-                    JOptionPane.showMessageDialog(null, "Thank you for using the Banking System. ");
+                    JOptionPane.showMessageDialog(null, "Thank you for using the Banking System.");
                     break; // Exit the loop to end the program
                 }
 
@@ -59,7 +69,7 @@ public class FChall5and1 {
                 // Handle custom exception for insufficient funds
                 JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             } catch (NumberFormatException e) {
-                // Handle invalid if the input is not a number
+                // Handle invalid input if the user enters something that's not a number
                 JOptionPane.showMessageDialog(null, "Invalid input. Please enter a valid number.", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
